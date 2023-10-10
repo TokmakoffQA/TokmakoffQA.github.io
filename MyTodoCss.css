@@ -1,0 +1,57 @@
+
+#bodyDiv {background: linear-gradient(to bottom right, rgb(113, 181, 196), rgb(8, 15, 94)); border-radius: 30px;
+    padding: 10px; margin: 10px ;}
+li { color: aliceblue;
+font-size: x-large;
+}
+
+li > * {margin: 10px;display: inline-block; vertical-align: middle;}
+li:hover span {
+display: inline;
+cursor: pointer;
+}
+
+.cross {
+display: none;
+color: red;
+}
+
+.arrow { display: none;
+color: white;
+}
+
+li:nth-child(n) {overflow: auto;
+background-color: rgb(33, 78, 123);border-radius: 15px;margin: 5px;
+}
+
+li:first-child .up {
+display: none;
+}
+
+li:last-child .down {
+display: none;
+}
+
+:checked + span {
+color: black;
+text-decoration:line-through;
+}
+
+#head {background: linear-gradient(to bottom right, rgb(113, 181, 196), rgb(8, 15, 94));
+ padding: 3px;margin-bottom: 5px; border-radius: 35px;color: white; text-align: center;font-family:Verdana;
+ }
+ #text1{border: solid black 3px;  border-radius: 10px; font-size: large;}
+ #input {display: flex; justify-content: space-evenly; padding: 10px; background: linear-gradient(to bottom right,rgb(8, 15, 94), rgb(113, 181, 196));
+     border-radius: 20px;
+ }
+ input[type=checkbox] {
+ width: 20px;
+ height: 20px;
+border: 3px solid brown;
+}
+
+#add:hover {box-shadow:  0px 0px 15px 5px rgb(163, 189, 227); transform: scale(1.1);transition: all 0.3s ease;}
+#remove:hover {box-shadow:  0px 0px 15px 5px rgb(175, 66, 66); transform: scale(1.1);transition: all 0.3s ease;}
+#add {cursor: pointer; font-size: large; border-radius: 10px;color: white;background:  linear-gradient(to bottom right, rgb(113, 181, 196), rgb(8, 15, 94));}
+#remove {cursor: pointer; font-size: large;border-radius: 10px;color: white;background:  linear-gradient(to bottom right, rgb(113, 181, 196), rgb(8, 15, 94));}
+

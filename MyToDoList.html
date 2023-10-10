@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="MyTodoCss.css">
+  <title>TokmakovToDo</title>
+
+</head>
+
+<body>
+    <div id="bodyDiv">
+    <div id = "head"><h2>My Todo List:</h2></div>
+   <div id="input"><input type="text" placeholder ="Input you task here" id="text1">
+    <button id="add">Add task</button>
+    <button id="remove">Delete checked</button>
+  </div>
+    <ol id="ol1">
+    </ol>
+  <script>
+    "use strict";
+    const ol = document.querySelector('ol#ol1'),
+      input = document.querySelector('#text1');
+
+ol.addEventListener('click',olClickListener);
+
+function delParentLiElement(child){
+  child.closest('li').remove();
+}
+
+function moveElement(el){
+  const isUpMove = el.matches('.up'),
+        li = el.closest('li');
+  if (isUpMove)
+    li.previousElementSibling?.before(li)
+  else
+    li.nextElementSibling?.after(li);
+}
+
+function olClickListener(event){
+  const 
+    span = event.target.closest('li span');
+  if (!span) return;
+  switch (true){
+    case span.classList.contains('cross'): 
+      delParentLiElement(span); 
+      return;
+    case span.matches('.arrow'):
+      moveElement(span);
+      return;      
+  }  
+}
+add.addEventListener ('click',addNewTask);
+function addNewTask (){
+  ol.append(createTask(input.value));
+  input.value ='';
+}
+remove.addEventListener ('click',removeDone);
+function removeDone(){
+  ol.querySelectorAll('li [type="checkbox"]:checked').forEach(el=>delParentLiElement(el));
+}
+
+function createTask(text){
+  const li = document.createElement('LI');
+  
+  li.innerHTML = `<input type="checkbox"><span>${text}</span><span class="arrow up">&#9195;
+</span><span class="arrow down">&#5121;
+
+</span><span class="cross">❌</span>`;
+
+  return li;
+}
+  </script>
+</body>
+
+</html>
